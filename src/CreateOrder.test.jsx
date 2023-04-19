@@ -1,20 +1,9 @@
-/* eslint-disable class-methods-use-this */
 import React from 'react';
 import {
   render, screen, fireEvent, act,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CreateOrder from './CreateOrder';
-
-// Mocking ResizeObserver
-class ResizeObserver {
-  observe() {}
-
-  unobserve() {}
-
-  disconnect() {}
-}
-window.ResizeObserver = ResizeObserver;
 
 test('renders Create Order heading', () => {
   render(<CreateOrder />);
