@@ -20,5 +20,7 @@ module.exports = {
   rules: {
     'linebreak-style': 0,
     'no-tabs': 0,
+    'react/jsx-props-no-spreading': 0,
+    'no-unused-vars': 1,
   },
 };
