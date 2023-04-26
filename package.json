@@ -1,66 +1,42 @@
 {
   "name": "purchase-order",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@mantine/core": "^6.0.8",
-    "@mantine/form": "^6.0.8",
-    "@mantine/hooks": "^6.0.8",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
-    "zod": "^3.21.4"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:coverage": "npm test -- --coverage",
-    "eject": "react-scripts eject",
-    "commit": "git-cz",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix --ext .js,.jsx ."
+    "lint:fix": "eslint --fix --ext .js,.jsx .",
+    "commit": "git-cz"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v-morris/purchase-order-workshop.git"
   },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/v-morris/purchase-order-workshop/issues"
+  },
+  "homepage": "https://github.com/v-morris/purchase-order-workshop#readme",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
-    "@commitlint/cli": "17.5.1",
-    "@commitlint/config-conventional": "17.4.4",
-    "@testing-library/user-event": "^14.4.3",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.38.0",
-    "eslint-config-airbnb": "^19.0.4",
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.3",
-    "resize-observer-polyfill": "^1.5.1"
-  }
+    "@commitlint/cli": "17.5.1",
+    "@commitlint/config-conventional": "17.4.4"
+  },
+  "dependencies": {}
 }

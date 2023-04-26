@@ -7,6 +7,7 @@ import {
 
 export default function CreateOrder() {
   const [searchValue, setSearchValue] = React.useState('');
+  const [vendors, setVendors] = React.useState([]);
 
   const validationSchema = z.object({
     vendor: z.string({ invalid_type_error: 'Vendor is required' })
@@ -24,6 +25,28 @@ export default function CreateOrder() {
     },
     validate: zodResolver(validationSchema),
   });
+
+  React.useEffect(() => {
+    const fetchVendors = async () => {
+      const response = await fetch('http://localhost:9000/vendors');
+      const isContentTypeJson = response.headers.get('content-type')?.includes('application/json');
+
+      /** Handle error response from backend or send generic error details */
+      const responseData = isContentTypeJson
+        ? await response.json()
+        : { status: response.status, statusText: response.statusText };
+
+      if (!response.ok) {
+        return Promise.reject(responseData);
+      }
+
+      return Promise.resolve(responseData);
+    };
+
+    fetchVendors()
+      .then((response) => setVendors(response))
+      .catch((error) => console.error('Logging Error', error));
+  }, []);
 
   return (
     <form
@@ -49,11 +72,7 @@ export default function CreateOrder() {
             onSearchChange={setSearchValue}
             searchValue={searchValue}
             nothingFound="Vendor Not Found"
-            data={[
-              'The Paper Supply Co.',
-              'Beef Jerky Inc.',
-              'Boxes & More',
-            ]}
+            data={vendors}
             size="md"
             clearButtonProps={{ 'aria-label': 'Clear select field' }}
             {...form.getInputProps('vendor')}
