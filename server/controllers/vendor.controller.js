@@ -1,6 +1,10 @@
 const getVendors = async (req, res, next) => {
   try {
-    const mockDatabase = ['The Paper Supply Co.', 'Beef Jerky Inc.', 'Boxes & More'];
+    const mockDatabase = [
+      'The Paper Supply Co.',
+      'Beef Jerky Inc.',
+      'Boxes & More',
+    ];
     res.status(200).json(mockDatabase);
 
     if (!mockDatabase) {
