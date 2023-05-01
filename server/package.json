@@ -4,6 +4,7 @@
   "description": "Node server for purchase-order workshop application",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,5 +14,8 @@
     "express": "^4.18.2",
     "zod": "^3.21.4",
     "zod-express-middleware": "^1.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
