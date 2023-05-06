@@ -15,5 +15,6 @@ module.exports = {
     'no-tabs': 0,
     'react/jsx-props-no-spreading': 0,
     'no-unused-vars': 1,
+    'import/no-extraneous-dependencies': 1,
   },
 };
