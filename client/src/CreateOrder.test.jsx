@@ -5,18 +5,32 @@ import {
 import userEvent from '@testing-library/user-event';
 import CreateOrder from './CreateOrder';
 
-test('renders Create Order heading', () => {
-  render(<CreateOrder />);
+beforeEach(() => {
+  fetch.resetMocks();
+});
+
+test('renders Create Order heading', async () => {
+  fetch.mockResponseOnce(JSON.stringify([]), { status: 200, headers: { 'content-type': 'application/json' } });
+  await act(() => {
+    render(<CreateOrder />);
+  });
+
   expect(screen.getByRole('heading')).toHaveTextContent('Create Order');
 });
 
-test('renders button with correct text', () => {
-  render(<CreateOrder />);
+test('renders button with correct text', async () => {
+  fetch.mockResponseOnce(JSON.stringify([]), { status: 200, headers: { 'content-type': 'application/json' } });
+  await act(() => {
+    render(<CreateOrder />);
+  });
   expect(screen.getByRole('button')).toHaveTextContent('Next');
 });
 
-test('renders correct default form values', () => {
-  render(<CreateOrder />);
+test('renders correct default form values', async () => {
+  fetch.mockResponseOnce(JSON.stringify([]), { status: 200, headers: { 'content-type': 'application/json' } });
+  await act(() => {
+    render(<CreateOrder />);
+  });
   expect(screen.getByRole('form')).toHaveFormValues({
     vendor: '',
     orderTitle: '',
@@ -26,6 +40,12 @@ test('renders correct default form values', () => {
 test('validates user input for Vendor field', async () => {
   // This field has a 50 character max validation, but cannot test this due to the input
   // preventing the user from inputting custom values
+  const mockVendorData = [
+    'The Paper Supply Co.',
+    'Beef Jerky Inc.',
+    'Boxes & More',
+  ];
+  fetch.mockResponseOnce(JSON.stringify(mockVendorData), { status: 200, headers: { 'content-type': 'application/json' } });
 
   render(<CreateOrder />);
 
@@ -49,6 +69,7 @@ test('validates user input for Vendor field', async () => {
 });
 
 test('validates user input for Order Title field', async () => {
+  fetch.mockResponseOnce(JSON.stringify([]), { status: 200, headers: { 'content-type': 'application/json' } });
   render(<CreateOrder />);
 
   // Required field validation
@@ -87,6 +108,7 @@ test('should have correct vendor list available to the user', async () => {
     'Beef Jerky Inc.',
     'Boxes & More',
   ];
+  fetch.mockResponseOnce(JSON.stringify(mockVendorData), { status: 200, headers: { 'content-type': 'application/json' } });
 
   render(<CreateOrder />);
 
