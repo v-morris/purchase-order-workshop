@@ -1,29 +1,20 @@
 import React from 'react';
-import { z } from 'zod';
 import { useForm, zodResolver } from '@mantine/form';
 import {
   Select, TextInput, Header, Title, Button, Grid,
 } from '@mantine/core';
+import { createOrderValidationSchema } from '@common/validations';
 
 export default function CreateOrder() {
   const [searchValue, setSearchValue] = React.useState('');
   const [vendors, setVendors] = React.useState([]);
-
-  const validationSchema = z.object({
-    vendor: z.string({ invalid_type_error: 'Vendor is required' })
-      .trim().min(1, { message: 'Vendor is required' })
-      .max(50, { message: 'Vendor cannot be more than 50 characters in length' }),
-    orderTitle: z.string()
-      .trim().min(1, { message: 'Order Title is required' })
-      .max(50, { message: 'Order Title cannot be more than 50 characters in length' }),
-  });
 
   const form = useForm({
     initialValues: {
       vendor: '',
       orderTitle: '',
     },
-    validate: zodResolver(validationSchema),
+    validate: zodResolver(createOrderValidationSchema),
   });
 
   React.useEffect(() => {

@@ -1,5 +1,6 @@
 {
   "name": "purchase-order",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +10,7 @@
     "lint:fix": "eslint --fix --ext .js,.jsx .",
     "commit": "git-cz"
   },
+  "workspaces": ["packages/**"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/v-morris/purchase-order-workshop.git"
